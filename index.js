@@ -1,3 +1,5 @@
+// implementation of movement and rotation of the ruler
+
 dragElement(document.getElementsByClassName("ruler")[0]);
 
 const rotationFunction = new Propeller(
@@ -62,3 +64,46 @@ document
             rotationFunction.onRotated(e);
         }
     });
+
+// value checking implementation
+
+const redPencilLength = 5.5;
+const bluePencilLength = 2.5;
+const greenPencilLength = 3.5;
+
+let outcome = { red: "", blue: "", green: "" };
+
+document.getElementById("RedValue").onchange = (e) => {
+    if (e.target.value == redPencilLength) {
+        outcome.red = "правильное";
+    } else {
+        outcome.red = "неправильное";
+    }
+};
+
+document.getElementById("BlueValue").onchange = (e) => {
+    if (e.target.value == bluePencilLength) {
+        outcome.blue = "правильное";
+    } else {
+        outcome.blue = "неправильное";
+    }
+};
+
+document.getElementById("GreenValue").onchange = (e) => {
+    if (e.target.value == greenPencilLength) {
+        outcome.green = "правильное";
+    } else {
+        outcome.green = "неправильное";
+    }
+};
+
+document.getElementById("submit").onclick = (e) => {
+    alert(
+        "Введённые значения: для красного карандаша - " +
+            outcome.red +
+            ", для синего - " +
+            outcome.blue +
+            ", для зелёного - " +
+            outcome.green
+    );
+};
