@@ -1,5 +1,9 @@
 // dragElement(document.getElementsByClassName("ruler")[0]);
 
+const proplr = new Propeller(document.getElementsByClassName("ruler")[0], {
+    inertia: 0,
+});
+
 function dragElement(element) {
     let pos1 = 0,
         pos2 = 0,
@@ -42,29 +46,6 @@ function dragElement(element) {
     }
 }
 
-// let leftEdge = document.getElementsByClassName("leftEdge")[0];
-// let rightEdge = document.getElementsByClassName("rightEdge")[0];
-
-// leftEdge.onmousedown = function () {
-//     localStorage.setItem("revolves", true);
-
-//     leftEdge.onmousemove = function () {
-//         new Propeller(document.getElementsByClassName("ruler")[0], {
-//             inertia: 0,
-//         });
-//     };
-// };
-
-// rightEdge.onmousedown = function () {
-//     localStorage.setItem("revolves", true);
-
-//     rightEdge.onmousemove = function () {
-//         new Propeller(document.getElementsByClassName("ruler")[0], {
-//             inertia: 0,
-//         });
-//     };
-// };
-
 document
     .getElementsByClassName("ruler")[0]
     .addEventListener("mousedown", (e) => {
@@ -73,12 +54,11 @@ document
                 e.target.className !== "rightEdge") &&
             e.target.className === "imgRuler"
         ) {
-            // e.target.addEventListener("mousemove", (e) => {
+            proplr.stop();
+
             localStorage.setItem("revolves", "false");
 
             dragElement(document.getElementsByClassName("ruler")[0]);
-
-            // });
         }
 
         if (
@@ -86,33 +66,10 @@ document
                 e.target.className === "rightEdge") &&
             e.target.className !== "imgRuler"
         ) {
-            // e.target.addEventListener("mousedown", (e) => {
             localStorage.setItem("revolves", "true");
 
             if (localStorage.getItem("revolves") === "true") {
-                // new Propeller(document.getElementsByClassName("ruler")[0], {
-                //     inertia: 0.1,
-                //     onRotate: function () {
-                //         console.log("ang =", this.angle);
-                //     },
-                //     onStop: function () {
-                //         alert("Stopped3");
-                //     },
-                //     // onDragStart: () =>
-                //     //     document.getElementById("ruler").style.position = ""
-                // });
-
-                new Propeller(document.getElementsByClassName("ruler")[0], {
-                    inertia: 0.1,
-                    // onStop: function () {
-                    //     alert("Stopped 4");
-                    // },
-                }).stop();
-
-                // console.log("ankl =", prop.angle);
+                proplr.onRotated(e);
             }
-
-            // e.target.removeEventListener("mousemove");
-            // });
         }
     });
