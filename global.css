@@ -163,11 +163,6 @@ input {
     position: absolute;
 }
 
-.leftEdge {
-    /* background-color: orange; */
-}
-
 .rightEdge {
-    /* border: 1px solid red; */
     left: 81%;
 }
