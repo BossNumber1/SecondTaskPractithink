@@ -1,4 +1,4 @@
-dragElement(document.getElementsByClassName("ruler")[0]);
+// dragElement(document.getElementsByClassName("ruler")[0]);
 
 function dragElement(element) {
     let pos1 = 0,
@@ -6,7 +6,12 @@ function dragElement(element) {
         pos3 = 0,
         pos4 = 0;
 
-    element.onmousedown = dragMouseDown;
+    if (localStorage.getItem("revolves") === "false") {
+        element.onmousedown = dragMouseDown;
+        // } else {
+        //     console.log("dviz");
+        //     element.onmousedown = null;
+    }
 
     function dragMouseDown(e) {
         e = e || window.event;
@@ -36,3 +41,78 @@ function dragElement(element) {
         document.onmousemove = null;
     }
 }
+
+// let leftEdge = document.getElementsByClassName("leftEdge")[0];
+// let rightEdge = document.getElementsByClassName("rightEdge")[0];
+
+// leftEdge.onmousedown = function () {
+//     localStorage.setItem("revolves", true);
+
+//     leftEdge.onmousemove = function () {
+//         new Propeller(document.getElementsByClassName("ruler")[0], {
+//             inertia: 0,
+//         });
+//     };
+// };
+
+// rightEdge.onmousedown = function () {
+//     localStorage.setItem("revolves", true);
+
+//     rightEdge.onmousemove = function () {
+//         new Propeller(document.getElementsByClassName("ruler")[0], {
+//             inertia: 0,
+//         });
+//     };
+// };
+
+document
+    .getElementsByClassName("ruler")[0]
+    .addEventListener("mousedown", (e) => {
+        if (
+            (e.target.className !== "leftEdge" ||
+                e.target.className !== "rightEdge") &&
+            e.target.className === "imgRuler"
+        ) {
+            // e.target.addEventListener("mousemove", (e) => {
+            localStorage.setItem("revolves", "false");
+
+            dragElement(document.getElementsByClassName("ruler")[0]);
+
+            // });
+        }
+
+        if (
+            (e.target.className === "leftEdge" ||
+                e.target.className === "rightEdge") &&
+            e.target.className !== "imgRuler"
+        ) {
+            // e.target.addEventListener("mousedown", (e) => {
+            localStorage.setItem("revolves", "true");
+
+            if (localStorage.getItem("revolves") === "true") {
+                // new Propeller(document.getElementsByClassName("ruler")[0], {
+                //     inertia: 0.1,
+                //     onRotate: function () {
+                //         console.log("ang =", this.angle);
+                //     },
+                //     onStop: function () {
+                //         alert("Stopped3");
+                //     },
+                //     // onDragStart: () =>
+                //     //     document.getElementById("ruler").style.position = ""
+                // });
+
+                new Propeller(document.getElementsByClassName("ruler")[0], {
+                    inertia: 0.1,
+                    // onStop: function () {
+                    //     alert("Stopped 4");
+                    // },
+                }).stop();
+
+                // console.log("ankl =", prop.angle);
+            }
+
+            // e.target.removeEventListener("mousemove");
+            // });
+        }
+    });

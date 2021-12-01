@@ -2,6 +2,9 @@
 
 body {
     font-family: "Montserrat", sans-serif;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
 }
 
 .app {
@@ -111,13 +114,6 @@ input {
     border-radius: 5px;
 }
 
-.ruler {
-    position: absolute;
-    /* position: relative;
-    top: calc(100% - 57px); */
-    top: 121px;
-}
-
 .tableSubjects {
     display: flex;
 }
@@ -149,4 +145,29 @@ input {
     position: absolute;
     top: 33.68px;
     left: 159.02px;
+}
+
+/* ruler styles */
+
+.ruler {
+    position: absolute;
+    top: 121px;
+    display: flex;
+}
+
+.leftEdge,
+.rightEdge {
+    display: flex;
+    width: 50px;
+    height: 57px;
+    position: absolute;
+}
+
+.leftEdge {
+    /* background-color: orange; */
+}
+
+.rightEdge {
+    /* background-color: red; */
+    left: 100%;
 }
