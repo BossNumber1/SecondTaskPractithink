@@ -1,8 +1,11 @@
 dragElement(document.getElementsByClassName("ruler")[0]);
 
-const proplr = new Propeller(document.getElementsByClassName("ruler")[0], {
-    inertia: 0,
-});
+const rotationFunction = new Propeller(
+    document.getElementsByClassName("ruler")[0],
+    {
+        inertia: 0,
+    }
+);
 
 function dragElement(element) {
     let pos1 = 0,
@@ -18,7 +21,6 @@ function dragElement(element) {
         pos3 = e.clientX;
         pos4 = e.clientY;
         document.onmouseup = closeDragElement;
-        // call a function whenever the cursor moves:
         document.onmousemove = elementDrag;
     }
 
@@ -35,7 +37,6 @@ function dragElement(element) {
     }
 
     function closeDragElement() {
-        /* stop moving when mouse button is released:*/
         document.onmouseup = null;
         document.onmousemove = null;
     }
@@ -49,8 +50,7 @@ document
                 e.target.className !== "rightEdge") &&
             e.target.className === "imgRuler"
         ) {
-            proplr.stop();
-
+            rotationFunction.stop();
             dragElement(document.getElementsByClassName("ruler")[0]);
         }
 
@@ -59,6 +59,6 @@ document
                 e.target.className === "rightEdge") &&
             e.target.className !== "imgRuler"
         ) {
-            proplr.onRotated(e);
+            rotationFunction.onRotated(e);
         }
     });
