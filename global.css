@@ -164,10 +164,10 @@ input {
 }
 
 .leftEdge {
-    background-color: orange;
+    /* background-color: orange; */
 }
 
 .rightEdge {
-    background-color: red;
-    left: 100%;
+    /* border: 1px solid red; */
+    left: 81%;
 }

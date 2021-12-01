@@ -10,9 +10,7 @@ function dragElement(element) {
         pos3 = 0,
         pos4 = 0;
 
-    if (localStorage.getItem("revolves") === "false") {
-        element.onmousedown = dragMouseDown;
-    }
+    element.onmousedown = dragMouseDown;
 
     function dragMouseDown(e) {
         e = e || window.event;
@@ -53,8 +51,6 @@ document
         ) {
             proplr.stop();
 
-            localStorage.setItem("revolves", "false");
-
             dragElement(document.getElementsByClassName("ruler")[0]);
         }
 
@@ -63,10 +59,6 @@ document
                 e.target.className === "rightEdge") &&
             e.target.className !== "imgRuler"
         ) {
-            localStorage.setItem("revolves", "true");
-
-            if (localStorage.getItem("revolves") === "true") {
-                proplr.onRotated(e);
-            }
+            proplr.onRotated(e);
         }
     });
