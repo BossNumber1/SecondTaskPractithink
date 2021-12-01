@@ -12,9 +12,6 @@ function dragElement(element) {
 
     if (localStorage.getItem("revolves") === "false") {
         element.onmousedown = dragMouseDown;
-        // } else {
-        //     console.log("dviz");
-        //     element.onmousedown = null;
     }
 
     function dragMouseDown(e) {
