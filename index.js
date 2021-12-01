@@ -1,4 +1,4 @@
-// dragElement(document.getElementsByClassName("ruler")[0]);
+dragElement(document.getElementsByClassName("ruler")[0]);
 
 const proplr = new Propeller(document.getElementsByClassName("ruler")[0], {
     inertia: 0,
