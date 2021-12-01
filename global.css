@@ -23,7 +23,6 @@ body {
     position: relative;
     top: 29px;
     text-align: center;
-    /* left: 343px; */
     width: 1170px;
     height: 20px;
     font-style: normal;
@@ -56,20 +55,16 @@ body {
 }
 
 .table {
-    /* position: absolute; */
     position: relative;
     width: 370px;
     height: 177px;
     top: 85px;
     left: 200px;
-    /* left: 334px;
-    top: 328px; */
 }
 
 .line,
 .lineTitle {
     display: flex;
-    /* background-color: orange; */
 }
 
 .line div,
@@ -101,13 +96,10 @@ input {
     justify-content: center;
     align-items: center;
     padding: 10px;
-
-    /* position: absolute; */
     width: 61px;
     height: 38px;
     left: 581px;
     top: 375px;
-
     background: #ffffff;
     border: 1.4px solid #2f2f2f;
     box-sizing: border-box;
@@ -120,28 +112,24 @@ input {
 
 .subjects {
     background-color: orange;
-    /* position: relative; */
     position: absolute;
     left: 751.25px;
     top: 105px;
 }
 
 .pencilRed {
-    /* position: relative; */
     position: absolute;
     top: 83.86px;
     left: 20px;
 }
 
 .pencilBlue {
-    /* position: relative; */
     position: absolute;
     top: 34.18px;
     left: 73px;
 }
 
 .pencilGreen {
-    /* position: relative; */
     position: absolute;
     top: 33.68px;
     left: 159.02px;
@@ -153,6 +141,7 @@ input {
     position: absolute;
     top: 121px;
     display: flex;
+    cursor: grab;
 }
 
 .leftEdge,
@@ -161,6 +150,7 @@ input {
     width: 50px;
     height: 57px;
     position: absolute;
+    cursor: pointer;
 }
 
 .rightEdge {
